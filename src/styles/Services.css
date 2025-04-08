@@ -1,0 +1,86 @@
+.services-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #ffffff, #f5f5f5);
+    text-align: center;
+  }
+  
+  .services-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 2rem;
+  }
+  
+  .services-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: nowrap; /* prevent wrapping on larger screens */
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-card {
+    flex: 0 0 23%; /* makes 4 cards fit side by side with spacing */
+    background-color: #fff;
+    padding: 2rem 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service-card .icon {
+    font-size: 2.5rem;
+    color: #444;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .service-card h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-card p {
+    color: #666;
+    font-size: 0.95rem;
+  }
+  
+  /* Hover Effects */
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+  }
+  
+  .service-card:hover .icon {
+    color: #0077ff;
+  }
+  
+  /* Responsive Tweaks */
+  @media (max-width: 1024px) {
+    .service-card {
+      flex: 0 0 45%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .services-container {
+      flex-wrap: wrap;
+    }
+  
+    .service-card {
+      flex: 0 0 100%;
+    }
+  
+    .services-title {
+      font-size: 1.5rem;
+    }
+  }
+  
