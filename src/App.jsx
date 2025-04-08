@@ -5,6 +5,8 @@ import Navbar from './Navbar.jsx';
 import Banner from './Banner.jsx';
 import Steps from './Steps.jsx';
 import Services from "./Services.jsx";
+import Testimonials from "./Testimonials.jsx";
+import Footer from "./Footer.jsx";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
     <Banner/>
     <Steps/>
     <Services/>
+    <Footer/>
+
     </>
   
   );
