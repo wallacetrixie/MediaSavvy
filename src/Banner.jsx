@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/Banner.css";
-import bannerImage from "./assets/img2.jpg"; // Use only one image
+import bannerImage from "./assets/img3.jpg"; // Use only one image
 
 const Banner = () => {
   return (
@@ -10,7 +10,7 @@ const Banner = () => {
         backgroundImage: `url(${bannerImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "65vh",
+        height: "70vh",
         position: "relative",
         color: "#fff",
       }}

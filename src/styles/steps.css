@@ -1,0 +1,85 @@
+:root {
+    --primary: #00aaff;
+    --accent: #0077cc;
+    --section-bg: #f8f9fa;
+    --text-color: #111;
+    --text-secondary: #555;
+    --card-bg: #ffffff;
+  }
+  
+  [data-theme="dark"] {
+    --primary: #00aaff;
+    --accent: #66cfff;
+    --section-bg: #121212;
+    --text-color: #f1f1f1;
+    --text-secondary: #ccc;
+    --card-bg: #1e1e1e;
+  }
+  
+
+.how-it-works {
+    padding: 60px 20px;
+    background: var(--section-bg);
+    color: var(--text-color);
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--accent);
+  }
+  
+  .steps-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .step-card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 30px 20px;
+    border-radius: 20px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .icon-wrapper {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+  }
+  
+  .step-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .step-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .steps-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .step-card {
+      width: 80%;
+    }
+  }
+  
