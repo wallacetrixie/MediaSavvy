@@ -10,7 +10,7 @@ const Banner = () => {
         backgroundImage: `url(${bannerImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "70vh",
+        height: "65vh",
         position: "relative",
         color: "#fff",
       }}

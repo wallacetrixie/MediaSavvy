@@ -15,14 +15,14 @@
     display: flex;
     justify-content: space-around;
     align-items: stretch;
-    flex-wrap: nowrap; /* prevent wrapping on larger screens */
+    flex-wrap: nowrap; 
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
   }
   
   .service-card {
-    flex: 0 0 23%; /* makes 4 cards fit side by side with spacing */
+    flex: 0 0 20%; 
     background-color: #fff;
     padding: 2rem 1.2rem;
     border-radius: 12px;
