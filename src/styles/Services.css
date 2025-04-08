@@ -1,11 +1,7 @@
 .services-section {
     padding: 4rem 2rem;
-   
+    background: linear-gradient(to right, #ffffff, #d6d4d4);
     text-align: center;
-    background: #FFEEEE; 
-background: -webkit-linear-gradient(to right, #DDEFBB, #FFEEEE);  
-background: linear-gradient(to right, #DDEFBB, #FFEEEE); 
-
   }
   
   .services-title {

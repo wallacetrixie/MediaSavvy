@@ -36,6 +36,8 @@
     flex-wrap: wrap;
     gap: 30px;
     max-width: 1200px;
+    border:none;
+    background: linear-gradient(to right, #ffffff, #f7f4f4);
     margin: auto;
   }
   
