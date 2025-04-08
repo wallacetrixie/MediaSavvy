@@ -1,0 +1,121 @@
+/* src/styles/Navbar.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Theme Styles */
+  .light-theme {
+    --bg: #ffffff;
+    --text: #111111;
+    --hover: #007acc;
+  }
+  
+  .dark-theme {
+    --bg: #111111;
+    --text: #ffffff;
+    --hover: #00bcd4;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Branding */
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--hover);
+  }
+  
+  /* Links */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: var(--hover);
+  }
+  
+  /* Icons */
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .theme-toggle,
+  .menu-toggle {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    transition: color 0.3s;
+  }
+  
+  .theme-toggle:hover,
+  .menu-toggle:hover {
+    color: var(--hover);
+  }
+  
+  .user-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Mobile Styles */
+  .menu-toggle {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: var(--bg);
+      flex-direction: column;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    .nav-links a {
+      margin: 10px 0;
+    }
+  }
+  
