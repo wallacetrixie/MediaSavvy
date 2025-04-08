@@ -1,61 +1,82 @@
-import React, { useState } from "react";
-import "./styles/footer.css";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import React from "react";
+import "./styles/footer.css"; 
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email) {
-      setMessage("Thank you for subscribing!");
-      setEmail("");
-    } else {
-      setMessage("Please enter a valid email address.");
-    }
-  };
-
   return (
     <footer className="footer">
-      <div className="footer-container">
-        <div className="social-links">
-          <a href="#" className="social-icon"><FaFacebook /></a>
-          <a href="#" className="social-icon"><FaTwitter /></a>
-          <a href="#" className="social-icon"><FaInstagram /></a>
-          <a href="#" className="social-icon"><FaLinkedin /></a>
-          <a href="#" className="social-icon"><FaYoutube /></a>
+      <div className="newsletter">
+        <input type="email" placeholder="Enter email address" />
+        <button>SUBSCRIBE</button>
+      </div>
+
+      <div className="footer-content">
+        <div className="footer-column">
+          <h3>MediaSavvy</h3>
+          <p>
+          A modern and fast music/video streaming platform that allows users to listen to their favorite songs and watch videos online.
+          </p>
+          <a href="#">read more →</a>
         </div>
 
-        <div className="subscription">
-          <h3>Stay Updated</h3>
-          <form onSubmit={handleSubscribe}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="email-input"
-              required
-            />
-            <button type="submit" className="subscribe-button">Subscribe</button>
-          </form>
-          {message && <p className="subscription-message">{message}</p>}
-        </div>
-
-        <div className="footer-links">
+        <div className="footer-column">
+          <h4>Discover</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Buy & Sell</a></li>
+            <li><a href="#">Merchant</a></li>
+            <li><a href="#">Giving back</a></li>
+            <li><a href="#">Help & Support</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Global</a></li>
+            <li><a href="#">Charts</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-column">
+          <h4>Social</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Googleplus</a></li>
           </ul>
         </div>
       </div>
 
+      <div className="footer-partners">
+        <span>Collaborators:</span>
+        <span>
+          ⓒ Wallaceⓒ Wambulwa ⓒ Trixie ⓒ Keila ⓒ Austin ⓒ Mark
+        </span>
+        <a href="#">See All →</a>
+      </div>
+
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Trixie. All rights reserved.</p>
+        <p>
+          Copyright ©2025 All rights reserved | made with ♥ by{" "}
+          <a href="#">https://github.com/wallacetrixie</a>
+        </p>
+        <div className="links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Compliances</a>
+        </div>
       </div>
     </footer>
   );
