@@ -29,7 +29,7 @@ const mockResults = [
   },
 ];
 
-const SearchBar = ({ visible }) => {
+const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,8 +51,6 @@ const SearchBar = ({ visible }) => {
 
     return () => clearTimeout(timeout);
   }, [searchInput]);
-
-  if (!visible) return null;
 
   return (
     <div className="searchbar-wrapper">

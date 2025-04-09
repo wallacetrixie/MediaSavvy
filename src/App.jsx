@@ -26,7 +26,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search" element={<SearchBar />} />
+        <Route path="/search" element={<SearchBar />} /> {/* Display SearchBar here */}
       </Routes>
     </Router>
   );
