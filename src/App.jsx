@@ -7,12 +7,14 @@ import Steps from './Steps.jsx';
 import Services from "./Services.jsx";
 import Testimonials from "./Testimonials.jsx";
 import Footer from "./Footer.jsx";
+import SearchBar from "./Search.jsx";
 
 const App = () => {
   return (
     <>
     <Navbar/>
     <Banner/>
+    <SearchBar visible={true}/>
     <Steps/>
     <Services/>
     <Footer/>
