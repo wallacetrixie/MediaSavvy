@@ -1,12 +1,13 @@
 import React from 'react';
 import './styles/About.css';
+import img from './assets/img1.jpg';
 
-const AboutUs = () => {
+const About = () => {
   return (
     <div className="about-us-container">
       <div className="about-us-header">
         <div className="about-us-image">
-          <img src="path/to/image.jpg" alt="About Us" />
+          <img src={img} alt="About Us" />
         </div>
         <div className="about-us-text">
           <h2>About Us</h2>
