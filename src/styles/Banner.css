@@ -27,8 +27,8 @@
 
 .content {
   position: absolute;
-  top: 30%;
-  left: 5%;
+  top: 20%;
+  left: 4%;
   transform: translateY(-50%);
   color: #fff;
   text-align: left;
@@ -65,14 +65,14 @@
   background-color: #0288d1;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .banner {
     height: 60vh;
   }
 
   .content {
-    top: 40%;
+    top: 20%;
     left: 5%;
   }
 
@@ -96,11 +96,14 @@
   }
 
   .content {
-    top: 50%;
-    left: 5%;
+    top: 20%;
+    left: 6%;
     transform: translateY(-50%);
   }
 
+  .banner{
+    height:40vh;
+  }
   .content h1 {
     font-size: 1.5rem;
   }

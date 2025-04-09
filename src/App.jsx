@@ -7,6 +7,7 @@ import Services from "./Services.jsx";
 import Testimonials from "./Testimonials.jsx";
 import Footer from "./Footer.jsx";
 import SearchBar from "./Search.jsx";
+import About from "./About.jsx";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Steps />
       <Services />
       <Testimonials />
+      <About/>
       <Footer />
     </>
   );

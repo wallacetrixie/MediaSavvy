@@ -55,13 +55,12 @@
     font-size: 0.9rem;
   }
   
-  /* Hover effect */
   .testimonial-card:hover {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
     background-color: #fefefe;
   }
   
-  /* Responsive */
+
   @media (max-width: 1024px) {
     .testimonial-card {
       flex: 0 0 45%;
