@@ -43,14 +43,13 @@ const Banner = () => {
         ></div>
       ))}
 
-<div className="content">
-  <h1>{bannerContent[currentBanner].title}</h1>
-  <p>{bannerContent[currentBanner].description}</p>
-  <Link to="/search">
-    <button className="cta-button">Search for Music</button>
-  </Link>
-</div>
-
+      <div className="content">
+        <h1>{bannerContent[currentBanner].title}</h1>
+        <p>{bannerContent[currentBanner].description}</p>
+        <Link to="/search">
+          <button className="cta-button">Search for Music</button>
+        </Link>
+      </div>
     </div>
   );
 };
