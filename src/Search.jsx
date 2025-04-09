@@ -55,13 +55,15 @@ const SearchBar = () => {
   return (
     <div className="searchbar-wrapper">
       <div className="searchbar-container">
-        <FaSearch className="search-icon" />
+       
         <input
           type="text"
           placeholder="Search music or video..."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
+          
         />
+         <FaSearch className="search-icon" />
       </div>
       {isLoading && <div className="loading-text">Searching...</div>}
       {!isLoading && results.length > 0 && (
