@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles/Banner.css";
+import { Link } from "react-router-dom";
 import img1 from "./assets/img1.jpg";
 import img2 from "./assets/img2.jpg";
 import img3 from "./assets/img3.jpg";
@@ -42,11 +43,14 @@ const Banner = () => {
         ></div>
       ))}
 
-      <div className="content">
-        <h1>{bannerContent[currentBanner].title}</h1>
-        <p>{bannerContent[currentBanner].description}</p>
-        <button className="cta-button">Search for Music</button>
-      </div>
+<div className="content">
+  <h1>{bannerContent[currentBanner].title}</h1>
+  <p>{bannerContent[currentBanner].description}</p>
+  <Link to="/search">
+    <button className="cta-button">Search for Music</button>
+  </Link>
+</div>
+
     </div>
   );
 };
