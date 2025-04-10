@@ -1,7 +1,9 @@
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import axios from "axios";
+import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,7 +22,6 @@ app.use((req, res, next) => {
 app.get("/search", async (req, res) => {
   const { query } = req.query;
 
-  // Validate query input
   if (!query || typeof query !== "string" || query.trim().length < 2) {
     return res.status(400).json({ error: "Please enter a more descriptive search query." });
   }
@@ -52,7 +53,6 @@ app.get("/search", async (req, res) => {
   } catch (error) {
     console.error("YouTube API error:", error.message);
 
-    // Axios-specific feedback
     if (error.response) {
       return res.status(error.response.status).json({
         error: "YouTube API returned an error.",
