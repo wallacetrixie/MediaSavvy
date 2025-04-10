@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/About.css';
-import img from './assets/img1.jpg';
+import img from './assets/group.jpg';
 
 const About = () => {
   return (
@@ -12,7 +12,7 @@ const About = () => {
         <div className="about-us-text">
           <h2>About Us</h2>
           <p>
-            Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Lobortis elementum nibh tellus molestie nunc non. Aliquet bibendum.
+            At MediaSavvy, we are passionate about leveraging technology to create innovative solutions. With a focus on excellence and creativity, we aim to deliver impactful applications that inspire and empower users.
           </p>
           <button className="learn-more-button">Learn More</button>
         </div>
@@ -21,19 +21,19 @@ const About = () => {
         <div className="section">
           <h3>01</h3>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Our mission is to bridge the gap between technology and user needs by developing intuitive and efficient software solutions.
           </p>
         </div>
         <div className="section">
           <h3>02</h3>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            We believe in continuous learning and innovation, staying ahead of trends to deliver cutting-edge applications.
           </p>
         </div>
         <div className="section">
           <h3>03</h3>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Collaboration and dedication drive our success, ensuring every project meets the highest standards of quality and functionality.
           </p>
         </div>
       </div>
