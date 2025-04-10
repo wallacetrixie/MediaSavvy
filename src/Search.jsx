@@ -1,78 +1,73 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { FaSearch, FaDownload } from "react-icons/fa";
 import "./styles/Search.css";
-
-const mockResults = [
-  {
-    id: 1,
-    title: "Blinding Lights - The Weeknd",
-    duration: "3:22",
-    type: "Music",
-  },
-  {
-    id: 2,
-    title: "Calm Piano Mix - Relaxing Music",
-    duration: "1:05:12",
-    type: "Music",
-  },
-  {
-    id: 3,
-    title: "Epic Workout Video - Motivation",
-    duration: "5:48",
-    type: "Video",
-  },
-  {
-    id: 4,
-    title: "Africa Top Hits 2023",
-    duration: "2:44",
-    type: "Music",
-  },
-];
 
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    if (searchInput.length === 0) {
+    if (!searchInput.trim()) {
       setResults([]);
+      setError("");
       return;
     }
 
-    setIsLoading(true);
-    const timeout = setTimeout(() => {
-      const filtered = mockResults.filter((item) =>
-        item.title.toLowerCase().includes(searchInput.toLowerCase())
-      );
-      setResults(filtered);
-      setIsLoading(false);
-    }, 500);
+    const delayDebounce = setTimeout(() => {
+      fetchResults(searchInput);
+    }, 500); // debounce to avoid too many API hits
 
-    return () => clearTimeout(timeout);
+    return () => clearTimeout(delayDebounce);
   }, [searchInput]);
+
+  const fetchResults = async (query) => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.get("http://localhost:5000/search", {
+        params: { query },
+      });
+
+      setResults(response.data);
+    } catch (err) {
+      setError(
+        err.response?.data?.error || "Something went wrong while searching."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="searchbar-wrapper">
       <div className="searchbar-container">
-       
         <input
           type="text"
           placeholder="Search music or video..."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          
         />
-         <FaSearch className="search-icon" />
+        <FaSearch className="search-icon" />
       </div>
+
       {isLoading && <div className="loading-text">Searching...</div>}
+
+      {!isLoading && error && (
+        <div className="error-message">{error}</div>
+      )}
+
       {!isLoading && results.length > 0 && (
         <div className="dropdown">
           {results.map((result) => (
             <div className="dropdown-item" key={result.id}>
+              <img src={result.thumbnail} alt={result.title} />
               <div className="info">
                 <strong>{result.title}</strong>
-                <span>{result.duration}</span>
+                <span>{result.channelTitle}</span>
               </div>
               <button className="download-btn">
                 <FaDownload />
@@ -81,7 +76,8 @@ const SearchBar = () => {
           ))}
         </div>
       )}
-      {!isLoading && searchInput && results.length === 0 && (
+
+      {!isLoading && searchInput && results.length === 0 && !error && (
         <div className="no-results">No matches found</div>
       )}
     </div>
