@@ -1,60 +1,61 @@
+
 .searchbar-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top:20px;
-  background: linear-gradient(to right, #ffffff, #d6d4d4);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .searchbar-container {
   display: flex;
   align-items: center;
-  position: relative;
   width: 100%;
-  max-width: 500px; 
-  margin-bottom: 1rem; 
+  position: relative;
 }
 
 .searchbar-container input {
   width: 100%;
-  padding: 10px 40px 10px 15px; 
+  padding: 10px 15px;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius: 5px;
   outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.searchbar-container input:focus {
+  border-color: #007bff;
 }
 
 .search-icon {
   position: absolute;
   right: 15px;
-  color: #888;
-  font-size: 18px;
+  color: #007bff;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.loading-text {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-}
-
+/* Dropdown styling */
 .dropdown {
+  margin-top: 10px;
   width: 100%;
-  max-width: 500px; 
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .dropdown-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
 }
 
 .dropdown-item:last-child {
@@ -62,39 +63,81 @@
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
 }
 
-.info {
+.dropdown-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.dropdown-item .info {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.info strong {
-  font-size: 14px;
+.dropdown-item .info strong {
+  font-size: 1rem;
   color: #333;
+  margin-bottom: 5px;
 }
 
-.info span {
-  font-size: 12px;
+.dropdown-item .info span {
+  font-size: 0.9rem;
   color: #666;
 }
 
 .download-btn {
-  background: none;
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  color: #007bff;
-  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .download-btn:hover {
-  color: #0056b3;
+  background-color: #0056b3;
 }
 
+/* No results message */
 .no-results {
   margin-top: 10px;
-  font-size: 14px;
-  color: #888;
+  color: #666;
+  font-size: 1rem;
   text-align: center;
+}
+
+/* Loading text */
+.loading-text {
+  margin-top: 10px;
+  color: #007bff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dropdown-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dropdown-item .info strong {
+    font-size: 0.9rem;
+  }
+
+  .dropdown-item .info span {
+    font-size: 0.8rem;
+  }
+
+  .download-btn {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
 }
