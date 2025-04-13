@@ -6,6 +6,7 @@ import "./styles/Search.css";
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [results, setResults] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -18,7 +19,7 @@ const SearchBar = () => {
 
     const delayDebounce = setTimeout(() => {
       fetchResults(searchInput);
-    }, 500); // debounce to avoid too many API hits
+    }, 500);
 
     return () => clearTimeout(delayDebounce);
   }, [searchInput]);
@@ -42,8 +43,15 @@ const SearchBar = () => {
     }
   };
 
+  const handleDownloadClick = (video) => {
+    setSelectedVideo(video);
+  };
+
+  const closeModal = () => setSelectedVideo(null);
+
   return (
     <div className="searchbar-wrapper">
+      {/* Search Bar */}
       <div className="searchbar-container">
         <input
           type="text"
@@ -54,12 +62,14 @@ const SearchBar = () => {
         <FaSearch className="search-icon" />
       </div>
 
+      {/* Feedback UI */}
       {isLoading && <div className="loading-text">Searching...</div>}
-
-      {!isLoading && error && (
-        <div className="error-message">{error}</div>
+      {!isLoading && error && <div className="error-message">{error}</div>}
+      {!isLoading && searchInput && results.length === 0 && !error && (
+        <div className="no-results">No matches found</div>
       )}
 
+      {/* Results Dropdown */}
       {!isLoading && results.length > 0 && (
         <div className="dropdown">
           {results.map((result) => (
@@ -69,7 +79,10 @@ const SearchBar = () => {
                 <strong>{result.title}</strong>
                 <span>{result.channelTitle}</span>
               </div>
-              <button className="download-btn">
+              <button
+                className="download-btn"
+                onClick={() => handleDownloadClick(result)}
+              >
                 <FaDownload />
               </button>
             </div>
@@ -77,8 +90,37 @@ const SearchBar = () => {
         </div>
       )}
 
-      {!isLoading && searchInput && results.length === 0 && !error && (
-        <div className="no-results">No matches found</div>
+      {/* Modal Preview */}
+      {selectedVideo && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{selectedVideo.title}</h2>
+            <iframe
+              width="100%"
+              height="300"
+              src={`https://www.youtube.com/embed/${selectedVideo.id}`}
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+            <div className="btn-group">
+              <a
+                href={`http://localhost:5000/download/${selectedVideo.id}?type=mp3`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button>Download MP3</button>
+              </a>
+              <a
+                href={`http://localhost:5000/download/${selectedVideo.id}?type=mp4`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button>Download MP4</button>
+              </a>
+              <button onClick={closeModal}>Close</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
