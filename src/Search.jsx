@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FaSearch, FaDownload } from "react-icons/fa";
+import { FaSearch, FaDownload, FaTimes } from "react-icons/fa";
 import "./styles/Search.css";
 
 const SearchBar = () => {
@@ -8,6 +8,7 @@ const SearchBar = () => {
   const [results, setResults] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -47,7 +48,25 @@ const SearchBar = () => {
     setSelectedVideo(video);
   };
 
-  const closeModal = () => setSelectedVideo(null);
+  const closeModal = () => {
+    setSelectedVideo(null);
+    setIsDownloading(false);
+  };
+
+  const handleDownload = async (type) => {
+    setIsDownloading(true);
+    try {
+      // Optional: trigger a toast here like "Download started..."
+      const link = document.createElement("a");
+      link.href = `http://localhost:5000/download/${selectedVideo.id}?type=${type}`;
+      link.target = "_blank";
+      link.click();
+    } catch (error) {
+      console.error("Download failed", error);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   return (
     <div className="searchbar-wrapper">
@@ -94,6 +113,7 @@ const SearchBar = () => {
       {selectedVideo && (
         <div className="modal">
           <div className="modal-content">
+            <FaTimes className="close-icon" onClick={closeModal} />
             <h2>{selectedVideo.title}</h2>
             <iframe
               width="100%"
@@ -103,21 +123,12 @@ const SearchBar = () => {
               allowFullScreen
             ></iframe>
             <div className="btn-group">
-              <a
-                href={`http://localhost:5000/download/${selectedVideo.id}?type=mp3`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button>Download MP3</button>
-              </a>
-              <a
-                href={`http://localhost:5000/download/${selectedVideo.id}?type=mp4`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button>Download MP4</button>
-              </a>
-              <button onClick={closeModal}>Close</button>
+              <button onClick={() => handleDownload("mp3")} disabled={isDownloading}>
+                {isDownloading ? "Downloading MP3..." : "Download MP3"}
+              </button>
+              <button onClick={() => handleDownload("mp4")} disabled={isDownloading}>
+                {isDownloading ? "Downloading MP4..." : "Download MP4"}
+              </button>
             </div>
           </div>
         </div>
